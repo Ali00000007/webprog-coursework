@@ -1,6 +1,8 @@
 const startTimerBtn = document.querySelector("#startTimer");
 const timerDisplay = document.querySelector("#timerDisplay");
 const resetTimerBtn = document.querySelector("#resetTimer");
+const recordTimeBtn = document.querySelector("#recordTime");
+const clearRaceBtn = document.querySelector("#clearRace");
 
 let timerInterval;
 let elapsedSeconds = 0;
@@ -32,5 +34,18 @@ function resetTimer(){
     timerDisplay.textContent = formatTime(elapsedSeconds);
 }
 
+function recordTime(){
+    const timeRecorded = document.createElement("p");
+    let time = document.createTextNode(formatTime(elapsedSeconds));
+    timeRecorded.append(time);
+    document.body.appendChild(timeRecorded);
+}
+
+function clearRace(){
+    
+}
+
 startTimerBtn.addEventListener("click", startStopTimer);
 resetTimerBtn.addEventListener("click", resetTimer);
+recordTimeBtn.addEventListener("click", recordTime);
+clearRaceBtn.addEventListener("click", clearRace);
