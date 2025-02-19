@@ -34,15 +34,27 @@ function resetTimer(){
     timerDisplay.textContent = formatTime(elapsedSeconds);
 }
 
+let participant = 1
+
 function recordTime(){
     const timeRecorded = document.createElement("p");
+    timeRecorded.className = "bananas";
+    timeRecorded.id = "time"
     let time = document.createTextNode(formatTime(elapsedSeconds));
     timeRecorded.append(time);
     document.body.appendChild(timeRecorded);
+    const participantNumber = document.createElement("p") 
+    participantNumber.className = "participant"
+    participantNumber.textContent = participant
+    document.body.appendChild(participantNumber)
+    participant += 1
 }
 
 function clearRace(){
-    
+  let timeRecorded = document.querySelectorAll(".bananas").forEach(element => element.remove());
+  let participants = document.querySelectorAll(".participant").forEach(element => element.remove())
+  resetTimer();
+  startStopTimer();
 }
 
 startTimerBtn.addEventListener("click", startStopTimer);
