@@ -42,10 +42,9 @@ function recordTime(){
     timeRecorded.id = "time"
     let time = document.createTextNode(formatTime(elapsedSeconds));
     timeRecorded.append(time);
-    document.body.appendChild(timeRecorded);
     const participantNumber = document.createElement("p") 
     participantNumber.className = "participant"
-    participantNumber.textContent = participant
+    participantNumber.textContent = `Participant: ${participant}: ` + formatTime(elapsedSeconds);
     document.body.appendChild(participantNumber)
     participant += 1
 }
